@@ -13,5 +13,8 @@
     "public/lib",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "react": "~0.13.3"
+  }
 }
