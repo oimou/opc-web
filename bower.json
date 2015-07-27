@@ -1,0 +1,17 @@
+{
+  "name": "opc-web",
+  "version": "0.0.0",
+  "homepage": "https://github.com/oimou/opc-web",
+  "authors": [
+    "oimou <s1190013@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/lib",
+    "test",
+    "tests"
+  ]
+}
