@@ -4,9 +4,7 @@ var async = require("async");
 var OPC = require("opc-js");
 var opc = new OPC();
 
-function init() {
-    var app = require("../app");
-    var server = require("http").Server(app);
+function init(server) {
     var io = require("socket.io")(server);
 
     // opc
