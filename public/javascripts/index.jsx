@@ -1,6 +1,6 @@
-/** @jsx React.DOM */
-
 "use strict";
+
+import Util from "./util.jsx";
 
 class Canvas extends React.Component {
     render() {
@@ -24,6 +24,7 @@ class Nav extends React.Component {
 
 class App extends React.Component {
     constructor() {
+        super()
         this.socket = io.connect();
     }
 
@@ -38,7 +39,7 @@ class App extends React.Component {
 
         this.socket.on("liveview:frame", (data) => {
             let img = new Image();
-            let jpgStr = arrayBufferToBase64(data.jpg);
+            let jpgStr = Util.arrayBufferToBase64(data.jpg);
 
             img.src = "data:image/png;base64," + jpgStr;
             ctx.drawImage(img, 0, 0);
@@ -53,22 +54,6 @@ class App extends React.Component {
         this.socket.on("takemotion:finish", () => {
             button.disabled = false;
         });
-
-        /**
-         * arrayBufferToBase64
-         *
-         * @param {ArrayBuffer} buffer
-         * @return {String}
-         */
-        function arrayBufferToBase64( buffer ) {
-            let binary = ''
-            let bytes = new Uint8Array( buffer )
-            let len = bytes.byteLength;
-            for (let i = 0; i < len; i++) {
-                binary += String.fromCharCode( bytes[ i ] )
-            }
-            return window.btoa( binary );
-        }
     }
 
     render() {
